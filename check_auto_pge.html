@@ -1,0 +1,17 @@
+---
+title: AllPages
+layout: default
+permalink: /check_auto_pge/
+---
+<h2>All pages</h2>
+<ul>
+{% assign sorted = site.pages | sort: "url" %}
+{% for p in sorted %}
+<li>
+  {{ p.url }}
+  - autogen:{{ p.autogen | inspect }}
+  - {{ p.autopages.display_name }}
+  <a href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
+</li>
+{% endfor %}
+</ul>
